@@ -1,0 +1,6 @@
+{"title": "task1", "type": "task"}
+{"title": "task2", "type": "task"}
+{"title": "task3", "type": "task", "project": "project1"}
+{"title": "task4", "type": "task", "contexts": ["context1"]}
+{"title": "project1", "type": "project"}
+{"title": "context1", "type": "context"}
