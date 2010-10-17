@@ -1,0 +1,28 @@
+{
+    {
+      "title": "task1",
+      "owner": "mrtazz",
+      "type": "task",
+      "status": "wip",
+      "tags": ["tag1", "tag2"],
+      "duedate": "",
+      "notes": "",
+      "project": "",
+      "contexts": []
+    },
+    {
+      "title": "project1",
+      "owner": "mrtazz",
+      "type": "project",
+      "duedate": "",
+      "status": "wip",
+      "tags": ["tag1", "tag2"],
+      "notes": "",
+      "contexts": ["home", "open source"]
+    },
+    {
+      "title": "home",
+      "owner": "mrtazz"
+      "type": "context"
+    }
+}

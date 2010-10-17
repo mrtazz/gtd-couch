@@ -1,0 +1,41 @@
+#
+# Rakefile for deploying and testing CouchDB views
+#
+
+require 'rake'
+require 'spec/rake/spectask'
+require 'json'
+require 'rest_client'
+
+AUTH = ""
+DEVCOUCH = "http://#{AUTH}localhost:5984"
+DATABASE = "gtd-couch"
+TESTDATA = "spec/test_tasks.json"
+
+task :default => 'development:spec'
+
+# tasks for development
+namespace :development do
+
+  Spec::Rake::SpecTask.new(:spec) do |t|
+    t.spec_files = FileList['spec/*.rb']
+  end
+
+  desc "Run all specs"
+  task :spec => :deploy
+
+  desc "deploy design to the development couchdb"
+  task :deploy do
+    sh "couchapp push #{DATABASE} #{DEVCOUCH}/#{DATABASE}"
+  end
+
+  desc "deploy test documents to the couch"
+  task :fill => :deploy do
+    File.open(TESTDATA).each_line{ |s|
+      uuid = JSON.parse(RestClient.get DEVCOUCH+"/_uuids")["uuids"][0]
+      RestClient.put(DEVCOUCH+"/"+DATABASE+"/"+uuid, s, :content_type => 'text/json')
+    }
+  end
+
+end
+
