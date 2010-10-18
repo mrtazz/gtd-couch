@@ -20,7 +20,7 @@ h1 {
   margin-bottom:8px;
 }
 
-#items {
+#todos {
   border:4px solid #dde;
   background:#eef;
   padding:8px;
@@ -28,24 +28,67 @@ h1 {
   float:left;
 }
 
-#sidebar {
+#nav {
   border:4px solid #dfd;
   padding:8px;
-  float:right;
-  width:30%;
+  float:left;
+  width:150px;
 }
 
-#items li {
+#todos li {
   border:4px solid #f5f5ff;
   background:#fff;
   padding:8px;
   margin:4px 0;
 }
 
-form {
+#newentry {
+  width: 700px;
+}
+
+#newentry form {
+  position: relative;
+  height: 150px;
   padding:4px;
   margin:6px;
-  background-color:#ddd;  
+  background-color:#ddd;
+}
+
+#leftcolumn {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 300px;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset li {
+  list-style-type: none;
+}
+
+#leftcolumn label {
+  float: left;
+  width: 35%;
+}
+
+#leftcolumn input {
+  width: 185px;
+}
+
+#rightcolumn {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  width: 300px;
+}
+
+#formbuttons {
+  position: absolute;
+  bottom: 3px;
+  width: 300px;
 }
 
 div.avatar {
@@ -70,6 +113,6 @@ div.avatar img {
   height : 40px;
 }
 
-#items ul {
+ul.nobullet {
   list-style: none;
 }
