@@ -21,14 +21,14 @@
     <li>
       {{#contexts}}
       <input type="checkbox" name="checkbox-{{checkbox}}" value="{{checkbox}}">
-      <label for="context-{{context}}">{{context}} </label>
+      <label for="context-{{context}}">{{title}} </label>
       {{/contexts}}
     </li>
     <li>
       <label for="project">Project: </label>
       <select name="project" >
         {{#projects}}
-        <option value="{{project}}">{{project}}</option>
+        <option value="{{project}}">{{title}}</option>
         {{/projects}}
       </select>
     </li>
