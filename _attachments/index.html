@@ -7,15 +7,19 @@
   <body>
     <h1>GTD Couch</h1>
 
-    <div id="tasks"></div>
+    <div id="newentry"></div>
 
     <div id="nav"> </div>
+
+    <div id="tasks"></div>
+
   </body>
   <script src="vendor/couchapp/loader.js"></script>
   <script type="text/javascript" charset="utf-8">
     $.couch.app(function(app) {
       $("#tasks").evently("tasks", app);
       $("#nav").evently("nav", app);
+      $("#newentry").evently("newentry", app);
     });
   </script>
 </html>
