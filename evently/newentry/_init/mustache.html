@@ -1,0 +1,39 @@
+<form id="newtask" action="">
+  <fieldset id="leftcolumn">
+    <li>
+      <label for="title">Title: </label>
+      <input type="text" id="tasktitle" name="title" value="">
+    </li>
+    <li>
+      <label for="notes">Notes: </label>
+      <input type="text" id="tasknotes" name="notes" value="">
+    </li>
+    <li>
+      <label for="tags">Tags: </label>
+      <input type="text" id="tasktags" name="tags" value="">
+    </li>
+    <li>
+      <label for="duedate">Due date: </label>
+      <input type="text" id="taskduedate" name="duedate" value="">
+    </li>
+  </fieldset>
+  <fieldset id="rightcolumn">
+    <li>
+      {{#contexts}}
+      <input type="checkbox" name="checkbox-{{checkbox}}" value="{{checkbox}}">
+      <label for="context-{{context}}">{{context}} </label>
+      {{/contexts}}
+    </li>
+    <li>
+      <label for="project">Project: </label>
+      <select name="project" >
+        {{#projects}}
+        <option value="{{project}}">{{project}}</option>
+        {{/projects}}
+      </select>
+    </li>
+  </fieldset>
+  <fieldset id="formbuttons">
+  <input type="submit" value="Save"> <input type="reset">
+  </fieldset>
+</form>
