@@ -2,6 +2,7 @@
     {
       "title": "task1",
       "owner": "mrtazz",
+      "box": "inbox"
       "type": "task",
       "status": "wip",
       "tags": ["tag1", "tag2"],
