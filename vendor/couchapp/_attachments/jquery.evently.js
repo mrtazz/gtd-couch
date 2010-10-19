@@ -22,7 +22,7 @@ function $$(node) {
     }
   };
   $.forIn = forIn;
-  function funViaString(fun) {
+  function funViaString(fun, hint) {
     if (fun && fun.match && fun.match(/^function/)) {
       eval("var f = "+fun);
       if (typeof f == "function") {
@@ -31,7 +31,8 @@ function $$(node) {
             return f.apply(this, arguments);
           } catch(e) {
             // IF YOU SEE AN ERROR HERE IT HAPPENED WHEN WE TRIED TO RUN YOUR FUNCTION
-            // $.log({"message": "Error in evently function.", "error": e, "src" : fun});
+            $.log({"message": "Error in evently function.", "error": e, 
+              "src" : fun, "hint":hint});
             throw(e);
           }
         };
@@ -42,7 +43,7 @@ function $$(node) {
   
   function runIfFun(me, fun, args) {
     // if the field is a function, call it, bound to the widget
-    var f = funViaString(fun);
+    var f = funViaString(fun, me);
     if (typeof f == "function") {
       return f.apply(me, args);
     } else {
@@ -65,7 +66,8 @@ function $$(node) {
       });
     },
     paths : [],
-    changesDBs : {}
+    changesDBs : {},
+    changesOpts : {}
   };
   
   function extractFrom(name, evs) {
@@ -74,43 +76,71 @@ function $$(node) {
 
   function extractEvents(name, ddoc) {
     // extract events from ddoc.evently and ddoc.vendor.*.evently
-    var events = [true, {}];
-    $.forIn(ddoc.vendor, function(k, v) {
+    var events = [true, {}]
+      , vendor = ddoc.vendor || {}
+      , evently = ddoc.evently || {}
+      ;
+    $.forIn(vendor, function(k, v) {
       if (v.evently && v.evently[name]) {
         events.push(v.evently[name]);
       }
     });
-    if (ddoc.evently[name]) {events.push(ddoc.evently[name]);}
+    if (evently[name]) {events.push(evently[name]);}
     return $.extend.apply(null, events);
+  }
+
+  function extractPartials(ddoc) {
+    var partials = [true, {}]
+      , vendor = ddoc.vendor || {}
+      , evently = ddoc.evently || {}
+      ;
+    $.forIn(vendor, function(k, v) {
+      if (v.evently && v.evently._partials) {
+        partials.push(v.evently._partials);
+      }
+    });
+    if (evently._partials) {partials.push(evently._partials);}
+    return $.extend.apply(null, partials);
+  };
+
+  function applyCommon(events) {
+    if (events._common) {
+      $.forIn(events, function(k, v) {
+        events[k] = $.extend(true, {}, events._common, v);
+      });
+      delete events._common;
+      return events;
+    } else {
+      return events;
+    }
   }
 
   $.fn.evently = function(events, app, args) {
     var elem = $(this);
     // store the app on the element for later use
     if (app) {
-      $$(elem).app = app;      
+      $$(elem).app = app;
     }
 
     if (typeof events == "string") {
       events = extractEvents(events, app.ddoc);
     }
-
+    events = applyCommon(events);
     $$(elem).evently = events;
+    if (app && app.ddoc) {
+      $$(elem).partials = extractPartials(app.ddoc);
+    }
     // setup the handlers onto elem
     forIn(events, function(name, h) {
       eventlyHandler(elem, name, h, args);
     });
     
     if (events._init) {
-      // $.log("ev _init", elem);
       elem.trigger("_init", args);
     }
     
     if (app && events._changes) {
-      $("body").bind("evently.changes."+app.db.name, function() {
-        // we want to unbind this function when the element is deleted.
-        // maybe jquery 1.4.2 has this covered?
-        // $.log('changes', elem);
+      $("body").bind("evently-changes-"+app.db.name, function() {
         elem.trigger("_changes");        
       });
       followChanges(app);
@@ -121,10 +151,15 @@ function $$(node) {
   // eventlyHandler applies the user's handler (h) to the 
   // elem, bound to trigger based on name.
   function eventlyHandler(elem, name, h, args) {
+    if ($.evently.log) {
+      elem.bind(name, function() {
+        $.log(elem, name);
+      });
+    }
     if (h.path) {
       elem.pathbinder(name, h.path);
     }
-    var f = funViaString(h);
+    var f = funViaString(h, name);
     if (typeof f == "function") {
       elem.bind(name, {args:args}, f); 
     } else if (typeof f == "string") {
@@ -140,7 +175,7 @@ function $$(node) {
     } else {
       // an object is using the evently / mustache template system
       if (h.fun) {
-        elem.bind(name, {args:args}, funViaString(h.fun));
+        throw("e.fun has been removed, please rename to e.before")
       }
       // templates, selectors, etc are intepreted
       // when our named event is triggered.
@@ -165,7 +200,7 @@ function $$(node) {
     // if there's a query object we run the query,
     // and then call the data function with the response.
     if (h.before && (!qrun || !arun)) {
-      funViaString(h.before).apply(me, args);
+      funViaString(h.before, me).apply(me, args);
     }
     if (h.async && !arun) {
       runAsync(me, h, args)
@@ -199,22 +234,22 @@ function $$(node) {
       }
       if (h.after) {
         runIfFun(me, h.after, args);
-        // funViaString(h.after).apply(me, args);
       }
     }    
   };
   
   // todo this should return the new element
   function mustachioed(me, h, args) {
+    var partials = $$(me).partials;
     return $($.mustache(
       runIfFun(me, h.mustache, args),
       runIfFun(me, h.data, args), 
-      runIfFun(me, h.partials, args)));
+      runIfFun(me, $.extend(true, partials, h.partials), args)));
   };
   
   function runAsync(me, h, args) {  
     // the callback is the first argument
-    funViaString(h.async).apply(me, [function() {
+    funViaString(h.async, me).apply(me, [function() {
       renderElement(me, h, 
         $.argsToArray(arguments).concat($.argsToArray(args)), false, true);
     }].concat($.argsToArray(args)));
@@ -232,7 +267,9 @@ function $$(node) {
     
     var q = {};
     forIn(qu, function(k, v) {
-      q[k] = v;
+      if (["type", "view"].indexOf(k) == -1) {
+        q[k] = v;
+      }
     });
     
     if (qType == "newRows") {
@@ -316,34 +353,47 @@ function $$(node) {
   
   // only start one changes listener per db
   function followChanges(app) {
-    var dbName = app.db.name;
+    var dbName = app.db.name, changeEvent = function(resp) {
+      $("body").trigger("evently-changes-"+dbName, [resp]);
+    };
     if (!$.evently.changesDBs[dbName]) {
-      connectToChanges(app, function() {
-        $("body").trigger("evently.changes."+dbName);
-      });
+      if (app.db.changes) {
+        // new api in jquery.couch.js 1.0
+        app.db.changes(null, $.evently.changesOpts).onChange(changeEvent);
+      } else {
+        // in case you are still on CouchDB 0.11 ;) deprecated.
+        connectToChanges(app, changeEvent);
+      }
       $.evently.changesDBs[dbName] = true;
     }
   }
-  
-  function connectToChanges(app, fun) {
-    function resetHXR(x) {
-      x.abort();
-      connectToChanges(app, fun);    
+  $.evently.followChanges = followChanges;
+  // deprecated. use db.changes() from jquery.couch.js
+  // this does not have an api for closing changes request.
+  function connectToChanges(app, fun, update_seq) {
+    function changesReq(seq) {
+      var url = app.db.uri+"_changes?heartbeat=10000&feed=longpoll&since="+seq;
+      if ($.evently.changesOpts.include_docs) {
+        url = url + "&include_docs=true";
+      }
+      $.ajax({
+        url: url,
+        contentType: "application/json",
+        dataType: "json",
+        complete: function(req) {
+          var resp = $.httpData(req, "json");
+          fun(resp);
+          connectToChanges(app, fun, resp.last_seq);
+        }
+      });
     };
-    app.db.info({success: function(db_info) {  
-      var c_xhr = jQuery.ajaxSettings.xhr();
-      c_xhr.open("GET", app.db.uri+"_changes?feed=continuous&since="+db_info.update_seq, true);
-      c_xhr.send("");
-      // todo use a timeout to prevent rapid triggers
-      var t;
-      c_xhr.onreadystatechange = function() {
-        clearTimeout(t);
-        t = setTimeout(fun, 100);
-      };
-      setTimeout(function() {
-        resetHXR(c_xhr);      
-      }, 1000 * 60);
-    }});
+    if (update_seq) {
+      changesReq(update_seq);
+    } else {
+      app.db.info({success: function(db_info) {
+        changesReq(db_info.update_seq);
+      }});
+    }
   };
   
 })(jQuery);
