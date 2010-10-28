@@ -16,6 +16,11 @@ function() {
       $.log("Success!");
     }
   });
+  $(':input', form)
+  .not(':button, :submit, :reset, :hidden')
+  .val('')
+  .removeAttr('checked')
+  .removeAttr('selected');
 
   return false;
 };
