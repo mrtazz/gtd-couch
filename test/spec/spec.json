@@ -9,7 +9,8 @@
       "duedate": "",
       "notes": "",
       "project": "",
-      "contexts": []
+      "contexts": [],
+      "logged": false
     },
     {
       "title": "project1",
