@@ -11,6 +11,10 @@ function() {
       project : f.project,
       type : "task"
     };
+    if (doc.project == "")
+    {
+      doc["box"] = "inbox";
+    }
   $$(form).app.db.saveDoc(doc, {
     success : function(r) {
       $.log("Success!");
