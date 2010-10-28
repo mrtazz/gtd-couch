@@ -3,7 +3,12 @@ function(data){
   var tasks = [];
   for (r in data.rows)
   {
-    tasks.push(data.rows[r]["value"]);
+    var task = data.rows[r]["value"];
+    if (task["status"] == "done")
+    {
+      task["checked"] = true;
+    }
+    tasks.push(task);
   }
   return {"tasks": tasks};
 }
