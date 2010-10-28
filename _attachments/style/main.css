@@ -1,5 +1,6 @@
 /* add styles here */
 
+
 body {
   font:1em Helvetica, sans-serif;
   padding:4px;
@@ -9,28 +10,26 @@ h1 {
   margin-top:0;
 }
 
-#todos {
-  border:4px solid #dde;
-  background:#eef;
-  padding:8px;
-  width:60%;
-  float:left;
+div.hidden
+{
+  display: none;
 }
 
-#nav {
-  border:4px solid #dfd;
-  padding:8px;
+
+div#nav {
+  border:2px solid #dfd;
+  padding:2px;
   float:left;
   width:150px;
 }
 
-#todos li {
-  border:4px solid #f5f5ff;
-  background:#fff;
-  padding:8px;
-  margin:4px 0;
+ul#navul
+{
+  padding-left: 2px;
+  margin-left: 2px;
 }
 
+/* new entry stuff */
 #newentry {
   width: 700px;
 }
@@ -41,6 +40,8 @@ h1 {
   padding:4px;
   margin:6px;
   background-color:#ddd;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 #leftcolumn {
@@ -79,6 +80,7 @@ fieldset li {
   bottom: 3px;
   width: 300px;
 }
+/* end new entry stuff */
 
 #account {
   float:right;
@@ -116,3 +118,38 @@ div.avatar img {
 ul.nobullet {
   list-style: none;
 }
+
+div#tasks
+{
+  position: relative;
+  top: 25px;
+  left: 35px;
+  width: 750px;
+}
+
+ul#tasksul
+{
+  margin-left: 0;
+  padding-left: 150px;
+}
+
+li.task
+{
+  font-family: Geneva, sans-serif;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  background-color: #c2c2c2;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+span.tags
+{
+  background-color: #a2a2a2;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  float:right;
+}
+
