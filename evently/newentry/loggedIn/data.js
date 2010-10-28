@@ -1,6 +1,6 @@
 function(data) {
 
-  var projects = [];
+  var projects = [""];
   var contexts = [];
 
   // parse the result and divide in contexts and projects
