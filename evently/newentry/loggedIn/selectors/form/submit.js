@@ -25,6 +25,7 @@ function() {
   .val('')
   .removeAttr('checked')
   .removeAttr('selected');
+  $('#projectselect').find('option:first').attr('selected', 'selected').parent('select');
 
   return false;
 };
