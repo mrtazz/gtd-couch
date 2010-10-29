@@ -5,15 +5,6 @@ couchapp for getting things done
 All GTD todo managers are overly complex or don't do useful syncing. CouchDB is simple
 and does replication so it seems like a perfect match.
 
-## TODO:
-- edit tasks
-- delete tasks
-- add new project
-- add new context
-- show by context
-- show by project
-- better css
-
 ## Contribute
 If you want to contribute:
 
