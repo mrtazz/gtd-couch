@@ -17,7 +17,6 @@ function() {
     }
   $$(form).app.db.saveDoc(doc, {
     success : function(r) {
-      $.log("Success!");
     }
   });
   $(':input', form)
