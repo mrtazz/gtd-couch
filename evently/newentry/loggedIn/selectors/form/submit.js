@@ -3,7 +3,7 @@ function() {
     f = form.serializeObject(),
     doc = {
       created_at : new Date(),
-      owner : $$("#profile").profile,
+      owner : $$("#profile").profile.name,
       title : f.title,
       notes : f.notes,
       tags : f.tags.split(","),
