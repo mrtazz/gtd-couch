@@ -1,6 +1,7 @@
 <ul id="tasksul" class="nobullet">
 {{#tasks}}
-<li class="task"><input type="checkbox" {{#checked}}checked="checked"{{/checked}}/>
+<li class="task" docid="{{_id}}">
+  <input type="checkbox" {{#checked}}checked="checked"{{/checked}}/>
   {{title}} <span class="tags">{{tags}}</span>
 </li>
 {{/tasks}}
