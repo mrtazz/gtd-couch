@@ -17,5 +17,4 @@ function()
         app.db.saveDoc(d, {success: function(r){}});
       }
   });
-  $.log(doc);
 }
