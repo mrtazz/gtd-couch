@@ -146,6 +146,11 @@ li.task
   border-radius: 5px;
 }
 
+li.task input
+{
+  margin-left: 10px;
+}
+
 span.tags
 {
   background-color: #a2a2a2;
