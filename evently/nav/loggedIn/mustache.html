@@ -1,16 +1,17 @@
 <ul id="navul" class="nobullet">
-  <li>Inbox</li>
-  <li>Today</li>
+  <li><a id="inboxlink" href="#">Inbox</a></li>
+  <li><a id="todaylink" href="#">Today</a></li>
   <li>Projects:</li>
   <ul class="nobullet">
   {{#projects}}
-    <li class="project">{{title}}</li>
+  <li class="project"><a class="projectlink" href="#">{{title}}</a></li>
   {{/projects}}
   </ul>
   <li>Contexts:</li>
   <ul class="nobullet">
   {{#contexts}}
-    <li class="project">{{title}}</li>
+  <li class="project"><a class="projectlink" href="#">{{title}}</a></li>
   {{/contexts}}
   </ul>
+  <li>Completed</li>
 </ul>
