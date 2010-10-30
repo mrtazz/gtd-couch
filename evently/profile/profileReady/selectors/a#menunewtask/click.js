@@ -1,6 +1,6 @@
 function() {
   // slide up/down for about text
-  var newtask = $("#newentry");
+  var newtask = $("#newtaskwrapper");
   if (newtask.is(":hidden"))
   {
     newtask.slideDown("fast");
