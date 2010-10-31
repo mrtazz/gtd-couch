@@ -1,6 +1,6 @@
 function() {
   // slide up/down for about text
-  var slider = $("#sliderwrapper");
+  var slider = $("#newcontextwrapper");
   if (slider.is(":hidden"))
   {
     slider.slideDown("fast");
