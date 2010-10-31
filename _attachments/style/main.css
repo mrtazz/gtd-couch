@@ -21,7 +21,7 @@ div#content
 }
 
 div#nav {
-  border:2px solid #dfd;
+  border:2px solid #bbb;
   padding:2px;
   float:left;
 }
@@ -90,8 +90,8 @@ fieldset li {
 }
 
 #profile {
-  border:4px solid #edd;
-  background:#fee;
+  border:4px solid #bbb;
+  background:#eee;
   margin-bottom:8px;
   float: right;
 }
