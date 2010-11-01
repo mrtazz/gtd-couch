@@ -1,6 +1,6 @@
 function(){
   // pass data to setTasks event
-  var context = $(this).html();
+  var context = $(this).attr("name");
   $$(this).app.db.view("couchapp/tasks_by_context", {
     key: context,
     success: function(resp)
