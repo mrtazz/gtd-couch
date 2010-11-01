@@ -4,11 +4,14 @@ function(e, data) {
   for (r in data.rows)
   {
     var task = data.rows[r]["value"];
-    if (task.status && task["status"] == "done")
+    if (task["owner"] == $$('#profile').profile.name)
     {
-      task["checked"] = true;
+      if (task.status && task["status"] == "done")
+      {
+        task["checked"] = true;
+      }
+      tasks.push(task);
     }
-    tasks.push(task);
   }
   return {"tasks": tasks};
 }
