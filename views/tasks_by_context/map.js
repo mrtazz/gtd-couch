@@ -1,7 +1,10 @@
 function(doc)
 {
-  if (doc.type == "task")
+  if (doc.type == "task" && doc.contexts)
   {
-    emit(doc.contexts, doc);
+    for (var i in doc.contexts)
+    {
+      emit(doc.contexts[i], doc);
+    }
   }
 };
