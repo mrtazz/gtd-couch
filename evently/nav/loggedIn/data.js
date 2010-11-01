@@ -8,11 +8,15 @@ function(data) {
   {
     if (data.rows[r].value.type == "context")
     {
-      contexts.push(data.rows[r].value);
+      var c = data.rows[r].value;
+      c["shorttitle"] = c.title.substring(0,12)+"...";
+      contexts.push(c);
     }
     else
     {
-      projects.push(data.rows[r].value);
+      var p = data.rows[r].value;
+      p["shorttitle"] = p.title.substring(0,12)+"...";
+      projects.push(p);
     }
   }
 
