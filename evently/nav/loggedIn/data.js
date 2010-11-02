@@ -13,7 +13,14 @@ function(data) {
     var obj = data.rows[r].value;
     if (obj.owner == user)
     {
-      obj["shorttitle"] = obj.title.substring(0,12)+"...";
+      if (obj.title.length > 15)
+      {
+        obj["shorttitle"] = obj.title.substring(0,12)+"...";
+      }
+      else
+      {
+        obj["shorttitle"] = obj.title;
+      }
       if (obj.type == "context")
       {
         contexts.push(obj);
