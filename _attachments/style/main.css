@@ -33,8 +33,16 @@ ul#navul
 }
 
 /* new entry stuff */
-#newentry {
-  width: 700px;
+#newtaskwrapper {
+  width: 500px;
+}
+
+#newprojectwrapper {
+  width: 500px;
+}
+
+#newcontextwrapper {
+  width: 500px;
 }
 
 #newentry form {
@@ -55,27 +63,27 @@ fieldset li {
   list-style-type: none;
 }
 
-#leftcolumn {
+.leftcolumn {
   position: absolute;
   left: 3px;
   top: 20px;
   width: 300px;
 }
 
-#leftcolumn label {
+.leftcolumn label {
   float: left;
   width: 35%;
 }
 
-#leftcolumn input {
+.leftcolumn input {
   width: 185px;
 }
 
-#rightcolumn {
-  position: absolute;
+.rightcolumn {
+  float: right;
   right: 3px;
   top: 20px;
-  width: 300px;
+  width: 150px;
 }
 
 .formbuttons {
