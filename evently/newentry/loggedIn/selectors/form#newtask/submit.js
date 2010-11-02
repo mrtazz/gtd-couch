@@ -8,9 +8,13 @@ function() {
       notes : f.notes,
       tags : f.tags.split(","),
       duedate : f.duedate,
-      project : f.project,
+      project : $('select#taskprojectselect option:selected').val(),
       type : "task"
     };
+    // set contexts
+    var ctxs = $.map($('select#taskcontextselect :selected'), function(e) { return $(e).text(); });
+    doc["contexts"] = ctxs;
+    // set to inbox if no project is assigned
     if (doc.project == "")
     {
       doc["box"] = "inbox";

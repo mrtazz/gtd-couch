@@ -22,15 +22,15 @@
     <fieldset class="rightcolumn">
       <li>
         <label for="project">Project: </label>
-        <select id="projectselect" name="project">
+        <select id="taskprojectselect" name="project">
           {{#projects}}
-          <option value="{{project}}">{{title}}</option>
+          <option value="{{title}}">{{title}}</option>
           {{/projects}}
         </select>
       </li>
       <li>
         <label for="context">Context: </label>
-        <select id="contextselect" name="context" multiple>
+        <select id="taskcontextselect" name="context" multiple>
           {{#contexts}}
           <option value="{{title}}">{{title}}</option>
           {{/contexts}}
@@ -62,7 +62,7 @@
     <fieldset class="rightcolumn">
       <li>
         <label for="context">Context: </label>
-        <select id="contextselect" name="context" multiple>
+        <select id="projectcontextselect" name="context" multiple>
           {{#contexts}}
           <option value="{{title}}">{{title}}</option>
           {{/contexts}}
