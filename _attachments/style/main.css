@@ -97,16 +97,31 @@ legend {
 }
 
 /* end new entry stuff */
+div#accountwrapper
+{
+  float: right;
+  border: 3px solid black;
+  background-color: #eee;
+  margin-bottom:8px;
+}
 
 #account {
   float:right;
 }
 
 #profile {
-  border:4px solid #bbb;
-  background:#eee;
-  margin-bottom:8px;
-  float: right;
+  float: left;
+}
+
+a.menunewbutton
+{
+  font-size: 0.9em;
+}
+
+a.menunewtask
+{
+  position: relative;
+  bottom: 1px;
 }
 
 div.avatar {

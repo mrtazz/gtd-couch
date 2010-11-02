@@ -6,8 +6,11 @@
   </head>
   <body>
     <div id="header">
-      <div id="account"> </div>
-      <div id="profile"> </div>
+      <div id="accountwrapper">
+        <div id="account"> </div>
+        <div id="profile"> </div>
+        <div id="newlinks"></div>
+      </div>
       <h1><a href="index.html">GTD Couch</a></h1>
     </div>
 
@@ -31,10 +34,12 @@
       $.evently.connect("#account","#nav", ["loggedIn","loggedOut"]);
       $.evently.connect("#account","#tasks", ["loggedIn","loggedOut"]);
       $.evently.connect("#account","#newentry", ["loggedIn","loggedOut"]);
+      $.evently.connect("#account","#newlinks", ["loggedIn","loggedOut"]);
 
       $("#tasks").evently("tasks", app);
       $("#nav").evently("nav", app);
       $("#newentry").evently("newentry", app);
+      $("#newlinks").evently("newlinks", app);
     });
   </script>
 </html>
