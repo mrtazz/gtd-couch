@@ -8,6 +8,8 @@ function() {
       notes : f.notes,
       tags : f.tags.split(","),
       duedate : f.duedate,
+      contexts : $.map($('select#projectcontextselect :selected'),
+                              function(e) { return $(e).text(); }),
       type : "project"
     };
   $$(form).app.db.saveDoc(doc, {
