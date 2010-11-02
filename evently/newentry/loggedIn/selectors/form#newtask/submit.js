@@ -9,11 +9,10 @@ function() {
       tags : f.tags.split(","),
       duedate : f.duedate,
       project : $('select#taskprojectselect option:selected').val(),
+      contexts : $.map($('select#taskcontextselect :selected'),
+                              function(e) { return $(e).text(); }),
       type : "task"
     };
-    // set contexts
-    var ctxs = $.map($('select#taskcontextselect :selected'), function(e) { return $(e).text(); });
-    doc["contexts"] = ctxs;
     // set to inbox if no project is assigned
     if (doc.project == "")
     {
