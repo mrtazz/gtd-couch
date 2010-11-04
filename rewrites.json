@@ -2,5 +2,21 @@
   {
     "from" : "",
     "to"   : "index.html"
+  },
+  {
+    "from" : "vendor/*",
+    "to"   : "vendor/*"
+  },
+  {
+    "from" : "scripts/*",
+    "to"   : "scripts/*"
+  },
+  {
+    "from" : "style/*",
+    "to"   : "style/*"
+  },
+  {
+    "from" : "gtd-couch/*",
+    "to" : "../../*"
   }
 ]

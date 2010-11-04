@@ -11,7 +11,7 @@
         <div id="profile"> </div>
         <div id="newlinks"></div>
       </div>
-      <h1><a href="index.html">GTD Couch</a></h1>
+      <h1><a href="/">GTD Couch</a></h1>
     </div>
 
 
@@ -26,6 +26,12 @@
   </body>
   <script src="vendor/couchapp/loader.js"></script>
   <script type="text/javascript" charset="utf-8">
+    var opts = {};
+    if (document.location.pathname.indexOf("_design") == -1) {
+      // we are in a vhost
+      opts.db = "gtd-couch";
+      opts.design = "couchapp";
+    };
     $.couch.app(function(app) {
       $("#account").evently("account", app);
       $("#profile").evently("profile", app);
@@ -40,6 +46,6 @@
       $("#nav").evently("nav", app);
       $("#newentry").evently("newentry", app);
       $("#newlinks").evently("newlinks", app);
-    });
+    }, opts);
   </script>
 </html>
