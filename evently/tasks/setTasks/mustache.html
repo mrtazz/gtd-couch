@@ -2,7 +2,50 @@
 {{#tasks}}
 <li class="task" docid="{{_id}}">
   <input type="checkbox" {{#checked}}checked="checked"{{/checked}}/>
-  {{title}} <span class="tags">{{tags}}</span>
+  <span class="title">{{title}}</span> <span class="tags">{{tags}}</span>
+  <div class="taskeditor hidden">
+    <form class="edittaskform" action="">
+      <fieldset class="leftcolumn">
+        <li>
+          <label for="title">Title: </label>
+          <input type="text" id="tasktitle" name="title" value="{{title}}">
+        </li>
+        <li>
+          <label for="notes">Notes: </label>
+          <input type="text" id="tasknotes" name="notes" value="{{notes}}">
+        </li>
+        <li>
+          <label for="tags">Tags: </label>
+          <input type="text" id="tasktags" name="tags" value="{{tags}}">
+        </li>
+        <li>
+          <label for="duedate">Due date: </label>
+          <input type="text" id="taskduedate" name="duedate" value="{{duedate}}">
+        </li>
+      </fieldset>
+      <fieldset class="rightcolumn">
+        <li>
+          <label for="project">Project: </label>
+          <select id="taskprojectselect" name="project">
+            {{#projects}}
+            <option value="{{title}}">{{title}}</option>
+            {{/projects}}
+          </select>
+        </li>
+        <li>
+          <label for="context">Context: </label>
+          <select id="taskcontextselect" name="context" multiple>
+            {{#contexts}}
+            <option value="{{title}}">{{title}}</option>
+            {{/contexts}}
+          </select>
+        </li>
+      </fieldset>
+      <fieldset class="formbuttons">
+      <input type="submit" value="Save"> <input type="reset">
+      </fieldset>
+    </form>
+  </div>
 </li>
 {{/tasks}}
 </ul>
