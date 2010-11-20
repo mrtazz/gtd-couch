@@ -1,3 +1,6 @@
 [
-  "test*"
+  "test*",
+  "_attachments/style_src/*",
+  "_attachments/config.rb",
+  "_attachments/.sass_cache"
 ]
