@@ -13,15 +13,21 @@ function() {
                               function(e) { return $(e).text(); }),
       type : "task"
     };
-    // set to inbox if no project is assigned
-    if (doc.project == "")
-    {
-      doc["box"] = "inbox";
-    }
-  $$(form).app.db.saveDoc(doc, {
-    success : function(r) {
-    }
+  // set to inbox if no project is assigned
+  if (doc.project == "")
+  {
+    doc["box"] = "inbox";
+  }
+  for (i in doc["tags"])
+  {
+    doc["tags"][i] = $.trim(doc["tags"][i]);
+  }
+  // save document to couch
+  $$(form).app.db.saveDoc(doc,
+  {
+    success : function(r) { }
   });
+  //clear forms
   $(':input', form)
   .not(':button, :submit, :reset, :hidden')
   .val('')
