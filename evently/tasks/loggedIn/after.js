@@ -1,9 +1,12 @@
 function(){
   // pass data to setTasks event
-  $$(this).app.db.view("couchapp/all", { success:
+  $$(this).app.db.view("couchapp/today", { success:
     function(resp)
     {
       $("#tasks").trigger("setTasks", resp);
     }
   });
+
+  $("#navul a").removeClass("active");
+  $("a#todaylink").addClass("active")
 }

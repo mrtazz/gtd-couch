@@ -8,4 +8,6 @@ function(){
       $("#tasks").trigger("setTasks", resp);
     }
   });
+  $("#navul a").removeClass("active");
+  $(this).addClass("active");
 }
