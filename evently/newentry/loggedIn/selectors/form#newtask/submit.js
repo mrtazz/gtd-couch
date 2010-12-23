@@ -11,13 +11,9 @@ function() {
       project : $('select#taskprojectselect option:selected').val(),
       contexts : $.map($('select#taskcontextselect :selected'),
                               function(e) { return $(e).text(); }),
-      type : "task"
+      type : "task",
+      status: "wip"
     };
-  // set to inbox if no project is assigned
-  if (doc.project == "")
-  {
-    doc["box"] = "inbox";
-  }
   for (i in doc["tags"])
   {
     doc["tags"][i] = $.trim(doc["tags"][i]);
