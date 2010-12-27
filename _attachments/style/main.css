@@ -235,3 +235,10 @@ div.taskeditor {
 #navul a.active {
   background: #cccccc;
 }
+
+/* line 222, ../style_src/main.scss */
+a.deletebutton {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
