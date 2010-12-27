@@ -2,10 +2,10 @@
 couchapp for getting things done
 
 ## Motivation
-All GTD todo managers are overly complex or don't do useful syncing. CouchDB is simple
-and does replication so it seems like a perfect match.
+All GTD todo managers are overly complex or don't do useful syncing
+(read: No OTA sync in Things.app).
+CouchDB is simple and does replication so it seems like a perfect match.
 
-(Original motivation: No OTA sync in Things.app)
 
 ## Deployment
 - go to [http://www.couchone.com/get](http://www.couchone.com/get) and get a
