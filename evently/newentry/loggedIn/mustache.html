@@ -24,7 +24,7 @@
         <label for="project">Project: </label>
         <select id="taskprojectselect" name="project">
           {{#projects}}
-          <option value="{{title}}">{{title}}</option>
+          <option value="{{title}}">{{shorttitle}}</option>
           {{/projects}}
         </select>
       </li>
@@ -32,7 +32,7 @@
         <label for="context">Context: </label>
         <select id="taskcontextselect" name="context" multiple>
           {{#contexts}}
-          <option value="{{title}}">{{title}}</option>
+          <option value="{{title}}">{{shorttitle}}</option>
           {{/contexts}}
         </select>
       </li>
@@ -64,7 +64,7 @@
         <label for="context">Context: </label>
         <select id="projectcontextselect" name="context" multiple>
           {{#contexts}}
-          <option value="{{title}}">{{title}}</option>
+          <option value="{{title}}">{{shorttitle}}</option>
           {{/contexts}}
         </select>
       </li>

@@ -31,10 +31,10 @@
           <label for="project">Project: </label>
           <select id="taskeditprojectselect" name="project">
             {{#allprojects}}
-            <option value="{{title}}">{{title}}</option>
+            <option value="{{title}}">{{shorttitle}}</option>
             {{/allprojects}}
             {{#project}}
-            <option selected value="{{project}}">{{project}}</option>
+            <option selected value="{{project}}">{{shortproject}}</option>
             {{/project}}
           </select>
         </li>
@@ -42,10 +42,10 @@
           <label for="context">Context: </label>
           <select id="taskeditcontextselect" name="context" multiple>
             {{#contexts}}
-            <option selected value="{{.}}">{{.}}</option>
+            <option selected value="{{title}}">{{shorttitle}}</option>
             {{/contexts}}
             {{#allcontexts}}
-            <option value="{{.}}">{{.}}</option>
+            <option value="{{title}}">{{shorttitle}}</option>
             {{/allcontexts}}
           </select>
         </li>
