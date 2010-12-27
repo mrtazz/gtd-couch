@@ -4,6 +4,9 @@
   <input type="checkbox" class="checkdone" {{#checked}}checked="checked"{{/checked}}/>
   <span class="title">{{title}}</span> <span class="tags">{{tags}}</span>
   <div class="taskeditor hidden" docid="{{_id}}">
+    <a class="deletebutton" href="#">
+      <img src="images/trash.png" width="20" height="25">
+    </a>
     <form class="edittaskform" action="">
       <fieldset class="leftcolumn">
         <li>
