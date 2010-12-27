@@ -14,7 +14,12 @@ function()
         {
           d["status"] = "wip";
         }
-        app.db.saveDoc(d, {success: function(r){}});
+        app.db.saveDoc(d, {
+          success: function(r)
+          {
+            $('li[docid|="'+docid+'"]').slideUp("fast");
+          }
+        });
       }
   });
 }
