@@ -14,7 +14,12 @@ function()
         d["project"] = $('select#taskeditprojectselect option:selected').val();
         d["contexts"] = $.map($('select#taskeditcontextselect :selected'),
                                         function(e) { return $(e).text(); });
-        app.db.saveDoc(d, {success: function(r){}});
+        app.db.saveDoc(d, {
+          success: function(r)
+          {
+            $('li[docid|="'+docid+'"]').children("div.taskeditor").slideUp("fast");
+          }
+        });
       }
     });
 
