@@ -61,6 +61,7 @@ function(e, data) {
   for (t in tasks)
   {
     var obj = tasks[t];
+    obj.shorttags = obj.tags.slice(0,5);
     obj.allcontexts = []; //contexts.slice();
     obj.allprojects = [];
     for (p in projects)
