@@ -16,6 +16,10 @@
     "to"   : "style/*"
   },
   {
+    "from" : "images/*",
+    "to"   : "images/*"
+  },
+  {
     "from" : "gtd-couch/*",
     "to" : "../../*"
   }
