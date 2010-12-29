@@ -33,23 +33,44 @@ ul#navul {
   margin-left: 2px;
 }
 
-/* new entry stuff */
 /* line 36, ../style_src/main.scss */
+ul#navul ul {
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+/* line 42, ../style_src/main.scss */
+ul#navul a:visited {
+  color: black;
+}
+
+/* line 47, ../style_src/main.scss */
+ul#navul a:link {
+  text-decoration: none;
+}
+
+/* line 52, ../style_src/main.scss */
+ul#navul a.active {
+  background: #cccccc;
+}
+
+/* new entry stuff */
+/* line 57, ../style_src/main.scss */
 #newtaskwrapper {
   width: 500px;
 }
 
-/* line 40, ../style_src/main.scss */
+/* line 61, ../style_src/main.scss */
 #newprojectwrapper {
   width: 500px;
 }
 
-/* line 44, ../style_src/main.scss */
+/* line 65, ../style_src/main.scss */
 #newcontextwrapper {
   width: 500px;
 }
 
-/* line 48, ../style_src/main.scss */
+/* line 69, ../style_src/main.scss */
 #newentry form {
   position: relative;
   height: 150px;
@@ -60,17 +81,17 @@ ul#navul {
   border-radius: 10px;
 }
 
-/* line 58, ../style_src/main.scss */
+/* line 79, ../style_src/main.scss */
 fieldset {
   border: none;
 }
 
-/* line 62, ../style_src/main.scss */
+/* line 83, ../style_src/main.scss */
 fieldset li {
   list-style-type: none;
 }
 
-/* line 66, ../style_src/main.scss */
+/* line 87, ../style_src/main.scss */
 .leftcolumn {
   position: absolute;
   left: 3px;
@@ -78,18 +99,18 @@ fieldset li {
   width: 300px;
 }
 
-/* line 73, ../style_src/main.scss */
+/* line 94, ../style_src/main.scss */
 .leftcolumn label {
   float: left;
   width: 35%;
 }
 
-/* line 78, ../style_src/main.scss */
+/* line 99, ../style_src/main.scss */
 .leftcolumn input {
   width: 185px;
 }
 
-/* line 82, ../style_src/main.scss */
+/* line 103, ../style_src/main.scss */
 .rightcolumn {
   position: absolute;
   left: 305px;
@@ -97,20 +118,20 @@ fieldset li {
   width: 150px;
 }
 
-/* line 90, ../style_src/main.scss */
+/* line 111, ../style_src/main.scss */
 .formbuttons {
   position: absolute;
   bottom: 3px;
   width: 300px;
 }
 
-/* line 96, ../style_src/main.scss */
+/* line 117, ../style_src/main.scss */
 legend {
   text-decoration: underline;
 }
 
 /* end new entry stuff */
-/* line 102, ../style_src/main.scss */
+/* line 123, ../style_src/main.scss */
 div#accountwrapper {
   float: right;
   border: 3px solid black;
@@ -118,28 +139,28 @@ div#accountwrapper {
   margin-bottom: 8px;
 }
 
-/* line 109, ../style_src/main.scss */
+/* line 130, ../style_src/main.scss */
 #account {
   float: right;
 }
 
-/* line 113, ../style_src/main.scss */
+/* line 134, ../style_src/main.scss */
 #profile {
   float: left;
 }
 
-/* line 118, ../style_src/main.scss */
+/* line 139, ../style_src/main.scss */
 a.menunewbutton {
   font-size: 0.9em;
 }
 
-/* line 123, ../style_src/main.scss */
+/* line 144, ../style_src/main.scss */
 a.menunewtask {
   position: relative;
   bottom: 1px;
 }
 
-/* line 128, ../style_src/main.scss */
+/* line 149, ../style_src/main.scss */
 div.avatar {
   padding: 2px;
   padding-bottom: 0;
@@ -151,12 +172,12 @@ div.avatar {
   text-align: center;
 }
 
-/* line 139, ../style_src/main.scss */
+/* line 160, ../style_src/main.scss */
 div.avatar .name {
   padding-top: 2px;
 }
 
-/* line 143, ../style_src/main.scss */
+/* line 164, ../style_src/main.scss */
 div.avatar img {
   margin: 0 auto;
   padding: 0;
@@ -164,12 +185,12 @@ div.avatar img {
   height: 40px;
 }
 
-/* line 150, ../style_src/main.scss */
+/* line 171, ../style_src/main.scss */
 ul.nobullet {
   list-style: none;
 }
 
-/* line 155, ../style_src/main.scss */
+/* line 176, ../style_src/main.scss */
 div#tasks {
   position: absolute;
   top: 5px;
@@ -177,13 +198,13 @@ div#tasks {
   width: 750px;
 }
 
-/* line 163, ../style_src/main.scss */
+/* line 184, ../style_src/main.scss */
 ul#tasksul {
   margin-left: 0;
   padding-left: 10px;
 }
 
-/* line 169, ../style_src/main.scss */
+/* line 190, ../style_src/main.scss */
 li.task {
   position: relative;
   font-family: Geneva, sans-serif;
@@ -194,12 +215,12 @@ li.task {
   border-radius: 5px;
 }
 
-/* line 180, ../style_src/main.scss */
+/* line 201, ../style_src/main.scss */
 li.task input {
   margin-left: 10px;
 }
 
-/* line 185, ../style_src/main.scss */
+/* line 206, ../style_src/main.scss */
 span.tags {
   background-color: #a2a2a2;
   -moz-border-radius: 5px;
@@ -209,34 +230,19 @@ span.tags {
   float: right;
 }
 
-/* line 195, ../style_src/main.scss */
+/* line 216, ../style_src/main.scss */
 select#contextselect {
   height: 50px;
 }
 
-/* line 200, ../style_src/main.scss */
+/* line 221, ../style_src/main.scss */
 div.taskeditor {
   position: relative;
   height: 240px;
   left: 10px;
 }
 
-/* line 207, ../style_src/main.scss */
-#navul a:visited {
-  color: black;
-}
-
-/* line 212, ../style_src/main.scss */
-#navul a:link {
-  text-decoration: none;
-}
-
-/* line 217, ../style_src/main.scss */
-#navul a.active {
-  background: #cccccc;
-}
-
-/* line 222, ../style_src/main.scss */
+/* line 229, ../style_src/main.scss */
 a.deletebutton {
   position: absolute;
   right: 25px;

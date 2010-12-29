@@ -32,6 +32,27 @@ ul#navul
   margin-left: 2px;
 }
 
+ul#navul ul
+{
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+ul#navul a:visited
+{
+  color: black;
+}
+
+ul#navul a:link
+{
+  text-decoration: none;
+}
+
+ul#navul a.active
+{
+  background: #cccccc;
+}
+
 /* new entry stuff */
 #newtaskwrapper {
   width: 500px;
@@ -203,20 +224,6 @@ div.taskeditor
   left: 10px;
 }
 
-#navul a:visited
-{
-  color: black;
-}
-
-#navul a:link
-{
-  text-decoration: none;
-}
-
-#navul a.active
-{
-  background: #cccccc;
-}
 
 a.deletebutton
 {
