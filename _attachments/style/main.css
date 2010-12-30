@@ -242,7 +242,12 @@ div.taskeditor {
   left: 10px;
 }
 
-/* line 229, ../style_src/main.scss */
+/* line 228, ../style_src/main.scss */
+hr.taskeditorline {
+  width: 95%;
+}
+
+/* line 234, ../style_src/main.scss */
 a.deletebutton {
   position: absolute;
   right: 25px;
