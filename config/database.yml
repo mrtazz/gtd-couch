@@ -1,0 +1,15 @@
+test:
+  host: localhost
+  port: 5984
+  database: gtd-couch-test
+  authdb: gtd-couch-auth-test
+  admin:
+  password:
+
+development:
+  host: localhost
+  port: 5984
+  database: gtd-couch-development
+  authdb: gtd-couch-auth-development
+  admin:
+  password:
