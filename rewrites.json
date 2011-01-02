@@ -4,6 +4,10 @@
     "to"   : "index.html"
   },
   {
+    "from" : "/",
+    "to"   : "index.html"
+  },
+  {
     "from" : "vendor/*",
     "to"   : "vendor/*"
   },
