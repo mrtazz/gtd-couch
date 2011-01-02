@@ -14,7 +14,8 @@ function() {
       type : "task",
       status: "wip"
     };
-  doc.duedate = Date.parse(f.duedate);
+  var date = Date.parse(f.duedate);
+  doc.duedate = isNaN(date) ? "" : date;
   for (var i in doc.tags)
   {
     doc.tags[i] = $.trim(doc.tags[i]);
@@ -44,7 +45,8 @@ function() {
   else if (node.html() == "Today")
   {
     view = "tasks_by_duedate";
-    key = Date.parse((new Date().getMonth +1)+"/"+(new Date()).getDate()+"/"+(new Date()).getFullYear());
+    var date = new Date();
+    key = Date.parse((date.getMonth() +1)+"/"+date.getDate()+"/"+date.getFullYear());
   }
   else if (node.html() == "Completed")
   {
