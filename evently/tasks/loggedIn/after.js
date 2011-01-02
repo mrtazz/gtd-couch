@@ -10,8 +10,7 @@ function(){
    */
   var query_tasks = function(data)
   {
-    var d = new Date();
-    var today = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear();
+    var today = Date.parse((new Date().getMonth +1)+"/"+(new Date()).getDate()+"/"+(new Date()).getFullYear());
     app.db.view("couchapp/tasks_by_duedate", {
       key: today,
       success: function(resp)

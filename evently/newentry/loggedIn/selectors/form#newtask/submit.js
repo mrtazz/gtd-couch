@@ -1,5 +1,6 @@
 function() {
   var form = $(this),
+    app = $$(form).app,
     f = form.serializeObject(),
     doc = {
       created_at : new Date(),
@@ -7,19 +8,19 @@ function() {
       title : f.title,
       notes : f.notes,
       tags : f.tags.split(","),
-      duedate : f.duedate,
       project : $('select#taskprojectselect option:selected').val(),
       contexts : $.map($('select#taskcontextselect :selected'),
                               function(e) { return $(e).text(); }),
       type : "task",
       status: "wip"
     };
-  for (i in doc["tags"])
+  doc.duedate = Date.parse(f.duedate);
+  for (var i in doc.tags)
   {
-    doc["tags"][i] = $.trim(doc["tags"][i]);
+    doc.tags[i] = $.trim(doc.tags[i]);
   }
   // save document to couch
-  $$(form).app.db.saveDoc(doc,
+  app.db.saveDoc(doc,
   {
     success : function(r) { }
   });
