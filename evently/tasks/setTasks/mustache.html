@@ -1,11 +1,12 @@
 <ul id="tasksul" class="nobullet">
 {{#tasks}}
 <li class="task" docid="{{_id}}">
-  <input type="checkbox" class="checkdone" {{#checked}}checked="checked"{{/checked}}/>
+<input name="checkbox" type="checkbox" class="checkdone"
+       {{#checked}}checked="checked"{{/checked}}/>
   <span class="title">{{title}}</span> <span class="tags">{{shorttags}}</span>
   <div class="taskeditor hidden" docid="{{_id}}">
     <hr class="taskeditorline" />
-    <a class="deletebutton" href="#">
+    <a class="deletebutton" href="#" name="deletebutton">
       <img src="images/trash.png" width="20" height="25">
     </a>
     <form class="edittaskform" action="">
