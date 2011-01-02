@@ -62,6 +62,11 @@ function(e, data) {
   {
     var obj = tasks[t];
     obj.shorttags = obj.tags.slice(0,5);
+    if (obj.duedate != "")
+    {
+      var date = new Date(obj.duedate);
+      obj.duedate = ((date.getMonth() +1)+"/"+date.getDate()+"/"+date.getFullYear());
+    }
     obj.allcontexts = []; //contexts.slice();
     obj.allprojects = [];
     for (p in projects)
