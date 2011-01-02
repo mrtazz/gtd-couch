@@ -1,0 +1,30 @@
+[
+  {
+    "from" : "",
+    "to"   : "index.html"
+  },
+  {
+    "from" : "/",
+    "to"   : "index.html"
+  },
+  {
+    "from" : "vendor/*",
+    "to"   : "vendor/*"
+  },
+  {
+    "from" : "scripts/*",
+    "to"   : "scripts/*"
+  },
+  {
+    "from" : "style/*",
+    "to"   : "style/*"
+  },
+  {
+    "from" : "images/*",
+    "to"   : "images/*"
+  },
+  {
+    "from" : "gtd-couch/*",
+    "to" : "../../*"
+  }
+]

@@ -1,0 +1,19 @@
+<ul id="navul" class="nobullet">
+  <li><a id="inboxlink" href="#">Inbox</a></li>
+  <li><a id="todaylink" href="#">Today</a></li>
+  <li>Projects:</li>
+  <ul class="nobullet">
+  {{#projects}}
+  <li class="project"><a class="projectlink" href="#"
+                         name="{{title}}">{{shorttitle}}</a></li>
+  {{/projects}}
+  </ul>
+  <li>Contexts:</li>
+  <ul class="nobullet">
+  {{#contexts}}
+  <li class="context"><a class="contextlink" href="#"
+                         name="{{title}}">{{shorttitle}}</a></li>
+  {{/contexts}}
+  </ul>
+  <li><a id="completedlink" href="#">Completed</a></li>
+</ul>

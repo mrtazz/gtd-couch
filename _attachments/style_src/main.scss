@@ -1,0 +1,238 @@
+/* add styles here */
+
+
+body {
+  font:1em Helvetica, sans-serif;
+  padding:4px;
+}
+
+h1 {
+  margin-top:0;
+}
+
+div.hidden
+{
+  display: none;
+}
+
+div#content
+{
+  position: relative;
+}
+
+div#nav {
+  border:2px solid #bbb;
+  padding:2px;
+  float:left;
+}
+
+ul#navul
+{
+  padding-left: 2px;
+  margin-left: 2px;
+}
+
+ul#navul ul
+{
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+ul#navul a:visited
+{
+  color: black;
+}
+
+ul#navul a:link
+{
+  text-decoration: none;
+}
+
+ul#navul a.active
+{
+  background: #cccccc;
+}
+
+/* new entry stuff */
+#newtaskwrapper {
+  width: 500px;
+}
+
+#newprojectwrapper {
+  width: 500px;
+}
+
+#newcontextwrapper {
+  width: 500px;
+}
+
+#newentry form {
+  position: relative;
+  height: 150px;
+  padding:4px;
+  margin:6px;
+  background-color:#ddd;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset li {
+  list-style-type: none;
+}
+
+.leftcolumn {
+  position: absolute;
+  left: 3px;
+  top: 20px;
+  width: 300px;
+}
+
+.leftcolumn label {
+  float: left;
+  width: 35%;
+}
+
+.leftcolumn input {
+  width: 185px;
+}
+
+.rightcolumn {
+  //float: right;
+  position: absolute;
+  left: 305px;
+  top: 30px;
+  width: 150px;
+}
+
+.formbuttons {
+  position: absolute;
+  bottom: 3px;
+  width: 300px;
+}
+
+legend {
+  text-decoration: underline;
+}
+
+/* end new entry stuff */
+div#accountwrapper
+{
+  float: right;
+  border: 3px solid black;
+  background-color: #eee;
+  margin-bottom:8px;
+}
+
+#account {
+  float:right;
+}
+
+#profile {
+  float: left;
+}
+
+a.menunewbutton
+{
+  font-size: 0.9em;
+}
+
+a.menunewtask
+{
+  position: relative;
+  bottom: 1px;
+}
+
+div.avatar {
+  padding:2px;
+  padding-bottom:0;
+  margin-right:4px;
+  font-size:0.78em;
+  float: right;
+  width : 60px;
+  height : 60px;
+  text-align: center;
+}
+
+div.avatar .name {
+  padding-top:2px;
+}
+
+div.avatar img {
+  margin:0 auto;
+  padding:0;
+  width : 40px;
+  height : 40px;
+}
+
+ul.nobullet {
+  list-style: none;
+}
+
+div#tasks
+{
+  position: absolute;
+  top: 5px;
+  left: 200px;
+  width: 750px;
+}
+
+ul#tasksul
+{
+  margin-left: 0;
+  padding-left: 10px;
+}
+
+li.task
+{
+  position: relative;
+  font-family: Geneva, sans-serif;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  background-color: #c2c2c2;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+li.task input
+{
+  margin-left: 10px;
+}
+
+span.tags
+{
+  background-color: #a2a2a2;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  float:right;
+}
+
+select#contextselect
+{
+  height: 50px;
+}
+
+div.taskeditor
+{
+  position: relative;
+  height: 240px;
+  left: 10px;
+}
+
+hr.taskeditorline
+{
+  width: 95%;
+}
+
+
+a.deletebutton
+{
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}

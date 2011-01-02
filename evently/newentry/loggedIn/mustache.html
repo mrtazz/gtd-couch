@@ -1,0 +1,94 @@
+<div id="newtaskwrapper" class="hidden">
+  <form id="newtask" action="">
+    <legend>New Task</legend>
+    <fieldset class="leftcolumn">
+      <li>
+        <label for="title">Title: </label>
+        <input type="text" id="tasktitle" name="title" value="">
+      </li>
+      <li>
+        <label for="notes">Notes: </label>
+        <input type="text" id="tasknotes" name="notes" value="">
+      </li>
+      <li>
+        <label for="tags">Tags: </label>
+        <input type="text" id="tasktags" name="tags" value="">
+      </li>
+      <li>
+        <label for="duedate">Due date: </label>
+        <input type="text" id="taskduedate" name="duedate" value="">
+      </li>
+    </fieldset>
+    <fieldset class="rightcolumn">
+      <li>
+        <label for="project">Project: </label>
+        <select id="taskprojectselect" name="project">
+          {{#projects}}
+          <option value="{{title}}">{{shorttitle}}</option>
+          {{/projects}}
+        </select>
+      </li>
+      <li>
+        <label for="context">Context: </label>
+        <select id="taskcontextselect" name="context" multiple>
+          {{#contexts}}
+          <option value="{{title}}">{{shorttitle}}</option>
+          {{/contexts}}
+        </select>
+      </li>
+    </fieldset>
+    <fieldset class="formbuttons">
+    <input type="submit" value="Save"> <input type="reset">
+    </fieldset>
+  </form>
+</div>
+<div id="newprojectwrapper" class="hidden">
+  <form id="newproject" action="">
+    <legend>New Project</legend>
+    <fieldset class="leftcolumn">
+      <li>
+        <label for="title">Title: </label>
+        <input type="text" id="projecttitle" name="title" value="">
+      </li>
+      <li>
+        <label for="tags">Tags: </label>
+        <input type="text" id="projecttags" name="tags" value="">
+      </li>
+      <li>
+        <label for="duedate">Due date: </label>
+        <input type="text" id="projectduedate" name="duedate" value="">
+      </li>
+    </fieldset>
+    <fieldset class="rightcolumn">
+      <li>
+        <label for="context">Context: </label>
+        <select id="projectcontextselect" name="context" multiple>
+          {{#contexts}}
+          <option value="{{title}}">{{shorttitle}}</option>
+          {{/contexts}}
+        </select>
+      </li>
+    </fieldset>
+    <fieldset class="formbuttons">
+    <input type="submit" value="Save"> <input type="reset">
+    </fieldset>
+  </form>
+</div>
+<div id="newcontextwrapper" class="hidden">
+  <form id="newcontext" action="">
+    <legend>New Context</legend>
+    <fieldset class="leftcolumn">
+      <li>
+        <label for="title">Title: </label>
+        <input type="text" id="contexttitle" name="title" value="">
+      </li>
+      <li>
+        <label for="notes">Notes: </label>
+        <input type="text" id="contextnotes" name="notes" value="">
+      </li>
+    </fieldset>
+    <fieldset class="formbuttons">
+    <input type="submit" value="Save"> <input type="reset">
+    </fieldset>
+  </form>
+</div>

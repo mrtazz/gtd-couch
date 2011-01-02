@@ -1,0 +1,62 @@
+<ul id="tasksul" class="nobullet">
+{{#tasks}}
+<li class="task" docid="{{_id}}">
+<input name="checkbox" type="checkbox" class="checkdone"
+       {{#checked}}checked="checked"{{/checked}}/>
+  <span class="title">{{title}}</span> <span class="tags">{{shorttags}}</span>
+  <div class="taskeditor hidden" docid="{{_id}}">
+    <hr class="taskeditorline" />
+    <a class="deletebutton" href="#" name="deletebutton">
+      <img src="images/trash.png" width="20" height="25">
+    </a>
+    <form class="edittaskform" action="">
+      <fieldset class="leftcolumn">
+        <li>
+          <label for="title">Title: </label>
+          <input type="text" id="taskedittitle" name="title" value="{{title}}">
+        </li>
+        <li>
+          <label for="notes">Notes: </label>
+          <input type="text" id="taskeditnotes" name="notes" value="{{notes}}">
+        </li>
+        <li>
+          <label for="tags">Tags: </label>
+          <input type="text" id="taskedittags" name="tags" value="{{tags}}">
+        </li>
+        <li>
+          <label for="duedate">Due date: </label>
+          <input type="text" id="taskeditduedate" name="duedate" value="{{duedate}}">
+        </li>
+      </fieldset>
+      <fieldset class="rightcolumn">
+        <li>
+          <label for="project">Project: </label>
+          <select id="taskeditprojectselect" name="project">
+            {{#allprojects}}
+            <option value="{{title}}">{{shorttitle}}</option>
+            {{/allprojects}}
+            {{#project}}
+            <option selected value="{{project}}">{{shortproject}}</option>
+            {{/project}}
+          </select>
+        </li>
+        <li>
+          <label for="context">Context: </label>
+          <select id="taskeditcontextselect" name="context" multiple>
+            {{#contexts}}
+            <option selected value="{{title}}">{{shorttitle}}</option>
+            {{/contexts}}
+            {{#allcontexts}}
+            <option value="{{title}}">{{shorttitle}}</option>
+            {{/allcontexts}}
+          </select>
+        </li>
+      </fieldset>
+      <fieldset class="formbuttons">
+      <input type="submit" value="Save"> <input type="reset">
+      </fieldset>
+    </form>
+  </div>
+</li>
+{{/tasks}}
+</ul>
