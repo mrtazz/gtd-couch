@@ -22,5 +22,15 @@ function() {
   .removeAttr('checked')
   .removeAttr('selected');
 
+  // update navigation
+  var app = $$(this).app;
+  app.db.view("couchapp/projects_and_contexts", {
+    success: function(resp)
+    {
+      $("#nav").trigger("loggedIn", resp);
+      $("#newentry").trigger("loggedIn", resp);
+    }
+  });
+
   return false;
 };

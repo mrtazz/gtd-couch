@@ -19,5 +19,15 @@ function() {
   .removeAttr('selected');
   $('#projectselect').find('option:first').attr('selected', 'selected').parent('select');
 
+  // update navigation
+  var app = $$(this).app;
+  app.db.view("couchapp/projects_and_contexts", {
+    success: function(resp)
+    {
+      $("#nav").trigger("loggedIn", resp);
+      $("#newentry").trigger("loggedIn", resp);
+    }
+  });
+
   return false;
 };
