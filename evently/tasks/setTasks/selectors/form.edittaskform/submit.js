@@ -49,12 +49,12 @@ function()
     if (node.parent().hasClass("context"))
     {
       view = "tasks_by_context";
-      key = node.html()
+      key = node.html();
     }
     else
     {
       view = "tasks_by_project";
-      key = node.html()
+      key = node.attr("name");
     }
   }
 
