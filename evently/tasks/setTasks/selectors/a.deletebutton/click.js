@@ -10,7 +10,9 @@ function()
         app.db.removeDoc(d, {
           success: function(r)
           {
-            $('li[docid|="'+docid+'"]').slideUp("fast");
+            var el = $('li[docid|="'+docid+'"]');
+            el.slideUp("fast");
+            el.remove();
           }
         });
       }
